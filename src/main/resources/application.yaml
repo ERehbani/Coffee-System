@@ -3,7 +3,7 @@ spring:
     name: Coffee-System
     datasource:
       url: jdbc:mysql://localhost:3306/test
-      username: root
+      username: ${DB_USER}
       password: 123
       driver-class-name: com.mysql.cj.jdbc.Driver
 
