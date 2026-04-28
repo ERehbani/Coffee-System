@@ -1,4 +1,4 @@
-package com.CoffeeGroup.Coffee.System.cafe;
+package com.CoffeeGroup.Coffee.System.features.cafe;
 
 import jakarta.persistence.*;
 import lombok.*;
