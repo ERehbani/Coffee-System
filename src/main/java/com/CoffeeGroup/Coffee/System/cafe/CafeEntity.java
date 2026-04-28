@@ -1,4 +1,4 @@
-package com.CoffeeGroup.Coffee.System.cafe.domain;
+package com.CoffeeGroup.Coffee.System.cafe;
 
 import jakarta.persistence.*;
 import lombok.*;
