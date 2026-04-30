@@ -1,9 +1,12 @@
 package com.CoffeeGroup.Coffee.System.features.purchase_details;
 
+import com.CoffeeGroup.Coffee.System.features.product.ProductEntity;
+import com.CoffeeGroup.Coffee.System.features.purchase.PurchaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -21,6 +24,19 @@ public class PurchaseDetailsEntity {
 
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
+
+    // --- Relacion Compra ---
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "compra_id", nullable = false)
+    @ToString.Exclude
+    private PurchaseEntity purchase;
+
+    // --- Relacion Producto ---
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "producto_id", nullable = false)
+    @ToString.Exclude
+    private ProductEntity product;
+
 
     @Column
     private Integer amount;
