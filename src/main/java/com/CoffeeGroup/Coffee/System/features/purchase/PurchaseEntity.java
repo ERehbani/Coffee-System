@@ -1,5 +1,7 @@
 package com.CoffeeGroup.Coffee.System.features.purchase;
 
+import com.CoffeeGroup.Coffee.System.features.client.ClientEntity;
+import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,13 +24,17 @@ public class PurchaseEntity {
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    // Relacion cafeteria
-    // Relacion Cliente
-
     @Column
     private Date date;
 
     @Column
     private BigDecimal price;
+
+    @OneToOne
+    @JoinColumn(name = "redemption_id")
+    private RedemptionEntity redemption_id;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private ClientEntity client_id;
 
 }

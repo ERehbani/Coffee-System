@@ -1,8 +1,11 @@
 package com.CoffeeGroup.Coffee.System.features.client;
 
+import com.CoffeeGroup.Coffee.System.features.purchase.PurchaseEntity;
+import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -35,5 +38,10 @@ public class ClientEntity {
     @Column
     private Integer historicalPoints;
 
-    // Tier id Relacion
+    @OneToMany(mappedBy = "client_id")
+    private List<RedemptionEntity> List_Redemption;
+
+    @OneToMany(mappedBy = "client_id")
+    private List<PurchaseEntity> List_Purchase;
+
 }

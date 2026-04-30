@@ -1,5 +1,7 @@
 package com.CoffeeGroup.Coffee.System.features.redemption;
 
+import com.CoffeeGroup.Coffee.System.features.client.ClientEntity;
+import com.CoffeeGroup.Coffee.System.features.purchase.PurchaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,7 +24,6 @@ public class RedemptionEntity {
     @Column(name = "external_id", nullable = false,unique = true)
     private UUID externalId;
 
-    //Relacion cliente y beneficio
 
     @Column
     private Date date;
@@ -35,4 +36,12 @@ public class RedemptionEntity {
 
     @Column
     private String validationCode;
+
+    @OneToOne
+    @JoinColumn(name = "purchase_id")
+    private PurchaseEntity purchase_id;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private ClientEntity client_id;
 }
