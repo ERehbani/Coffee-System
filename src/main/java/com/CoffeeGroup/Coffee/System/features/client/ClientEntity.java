@@ -1,12 +1,15 @@
 package com.CoffeeGroup.Coffee.System.features.client;
 
+import com.CoffeeGroup.Coffee.System.features.shared_rewards.SharedRewardsEntity;
+import com.CoffeeGroup.Coffee.System.features.tier.TierEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "clients")
+@Table(name = "client")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -35,5 +38,19 @@ public class ClientEntity {
     @Column
     private Integer historicalPoints;
 
-    // Tier id Relacion
+    // Tier id Relation
+    @ManyToOne
+    @JoinColumn (name="tier_id",nullable = false)
+    private TierEntity tier;
+
+    // SharedRewards emisor relation
+    @OneToMany(mappedBy = "emisor")
+    private List<SharedRewardsEntity>RewardEmisor;
+
+    //SharedReward Receptor Relation
+    @OneToMany(mappedBy = "receptor")
+    private List<SharedRewardsEntity>RewardReceptor;
+
+
+
 }
