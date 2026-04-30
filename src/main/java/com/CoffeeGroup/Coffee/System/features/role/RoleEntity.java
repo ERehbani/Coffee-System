@@ -1,19 +1,20 @@
-package com.CoffeeGroup.Coffee.System.features.user;
+package com.CoffeeGroup.Coffee.System.features.role;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "users")
+@Table(name = "roles")
 @Getter
 @Setter
 @AllArgsConstructor
-@Builder
 @NoArgsConstructor
-public class UserEntity {
+@Builder
+
+public class RoleEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,14 +23,5 @@ public class UserEntity {
     private UUID externalId;
 
     @Column
-    private String password;
-
-    @Column
-    private Boolean state;
-
-    @Column
-    private Date creationDate;
-
-    //Relacion Rol
-
+    private String name;
 }

@@ -1,19 +1,19 @@
-package com.CoffeeGroup.Coffee.System.features.user;
+package com.CoffeeGroup.Coffee.System.features.client;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "users")
+@Table(name = "clients")
 @Getter
 @Setter
 @AllArgsConstructor
-@Builder
 @NoArgsConstructor
-public class UserEntity {
+@Builder
+
+public class ClientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,15 +21,19 @@ public class UserEntity {
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    @Column
-    private String password;
+    //Usuario ID relacion
 
     @Column
-    private Boolean state;
+    private String name;
 
     @Column
-    private Date creationDate;
+    private String profilePhoto;
 
-    //Relacion Rol
+    @Column
+    private Integer currentPoints;
 
+    @Column
+    private Integer historicalPoints;
+
+    // Tier id Relacion
 }

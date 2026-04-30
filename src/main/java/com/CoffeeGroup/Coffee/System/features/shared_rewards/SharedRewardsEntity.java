@@ -1,19 +1,19 @@
-package com.CoffeeGroup.Coffee.System.features.user;
+package com.CoffeeGroup.Coffee.System.features.shared_rewards;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "users")
-@Getter
+@Table(name = "shared_reward")
 @Setter
+@Getter
 @AllArgsConstructor
-@Builder
 @NoArgsConstructor
-public class UserEntity {
+@Builder
+
+public class SharedRewardsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,15 +21,9 @@ public class UserEntity {
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    @Column
-    private String password;
+    //RELACION CON BENEFICIO
+    //RELACION CON CLIENTE EMISOR
+    //RELACION CON CLIENTE RECEPTOR
 
-    @Column
-    private Boolean state;
-
-    @Column
-    private Date creationDate;
-
-    //Relacion Rol
 
 }

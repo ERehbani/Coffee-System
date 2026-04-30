@@ -2,6 +2,7 @@ package com.CoffeeGroup.Coffee.System.features.product;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -15,26 +16,27 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
-    private long id_cafeteria;
 
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
+    //Relacion cafeteria
+
     @Column(nullable = false)
-    private String Name;
+    private String name;
 
     @Column(length = 500)
-    private String Description;
+    private String description;
 
-    private float Price;
+    private BigDecimal price;
 
-    private int Points_awarded;
+    private Integer pointsAwarded;
 
-    private long id_category;
+    //Relacion categoria
+
 
     @Column(nullable = false)
-    private boolean state;
+    private Boolean state;
 
 
 }

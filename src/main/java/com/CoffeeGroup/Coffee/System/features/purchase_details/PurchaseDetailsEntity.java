@@ -1,19 +1,20 @@
-package com.CoffeeGroup.Coffee.System.features.user;
+package com.CoffeeGroup.Coffee.System.features.purchase_details;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.math.BigDecimal;
 import java.util.UUID;
 
-@Entity
-@Table(name = "users")
 @Getter
 @Setter
 @AllArgsConstructor
-@Builder
 @NoArgsConstructor
-public class UserEntity {
+@ToString
+@Table(name = "purchase_details")
+@Entity
+public class PurchaseDetailsEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,14 +23,12 @@ public class UserEntity {
     private UUID externalId;
 
     @Column
-    private String password;
+    private Integer amount;
 
     @Column
-    private Boolean state;
+    private BigDecimal priceUnit;
 
     @Column
-    private Date creationDate;
-
-    //Relacion Rol
+    private Integer pointsGenerated;
 
 }

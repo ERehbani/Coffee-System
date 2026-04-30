@@ -7,7 +7,7 @@ import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
 import java.util.UUID;
 
 @Entity
-@Table(name = "cafe")
+@Table(name = "cafes")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,25 +23,25 @@ public class CafeEntity {
     private UUID externalId;
 
     @Column(nullable = false)
-    private String nombre;
+    private String name;
 
     @Column(nullable = false)
-    private String direccion;
+    private String address;
 
     @Column(nullable = false, unique = true)
     private String email;
 
-    private String telefono;
+    private String phoneNumber;
 
     @Column(length = 500)
-    private String descripcion;
+    private String description;
 
     @Column(nullable = false)
-    private Boolean estado;
+    private Boolean state;
 
-    private String imagen;
+    private String image;
 
-    private String horario;
+    private String schedule;
 
 
 }
