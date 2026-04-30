@@ -1,10 +1,13 @@
 package com.CoffeeGroup.Coffee.System.features.benefit;
 
+import com.CoffeeGroup.Coffee.System.features.shared_rewards.SharedRewardsEntity;
+import com.CoffeeGroup.Coffee.System.features.tier.TierEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -43,13 +46,18 @@ public class BenefitEntity {
 
     // Relacion tipo
     // Relacion cafeteria
-    // Relacion tier
-
     @Column
     private Boolean isPublic;
 
     @Column
     private Integer maxRedemptions;
 
+    // Relacion tier
+    @ManyToOne
+    @JoinColumn(name = "tier_id",nullable = false)
+    private TierEntity tier;
+    //Relacion Beneficio compartido
+    @OneToMany(mappedBy = "benefit")
+    private List<SharedRewardsEntity>sharedRewards;
 
 }
