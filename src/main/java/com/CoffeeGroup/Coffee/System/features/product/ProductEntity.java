@@ -1,8 +1,13 @@
 package com.CoffeeGroup.Coffee.System.features.product;
+import com.CoffeeGroup.Coffee.System.features.cafe.CafeEntity;
+import com.CoffeeGroup.Coffee.System.features.category.CategoryEntity;
+import com.CoffeeGroup.Coffee.System.features.purchase_details.PurchaseDetailsEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Struct;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -20,7 +25,11 @@ public class ProductEntity {
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    //Relacion cafeteria
+    // --- Relacion Cafeteria ---
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cafeteria_id")
+    @ToString.Exclude
+    private CafeEntity cafe;
 
     @Column(nullable = false)
     private String name;
@@ -32,7 +41,16 @@ public class ProductEntity {
 
     private Integer pointsAwarded;
 
-    //Relacion categoria
+    // --- Relacion Categoria ---
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoria_id")
+    @ToString.Exclude
+    private CategoryEntity category;
+
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private List<PurchaseDetailsEntity> purchaseDetails;
 
 
     @Column(nullable = false)

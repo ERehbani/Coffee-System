@@ -1,9 +1,11 @@
 package com.CoffeeGroup.Coffee.System.features.cafe;
 
+import com.CoffeeGroup.Coffee.System.features.product.ProductEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -17,16 +19,23 @@ import java.util.UUID;
 public class CafeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
     @Column(nullable = false)
+
     private String name;
 
     @Column(nullable = false)
     private String address;
+
+    // --- Relacion Producto ---
+    @OneToMany(mappedBy = "cafe", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private List<ProductEntity> products;
 
     @Column(nullable = false, unique = true)
     private String email;
