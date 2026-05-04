@@ -4,6 +4,7 @@ import com.CoffeeGroup.Coffee.System.features.purchase.PurchaseEntity;
 import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
 import com.CoffeeGroup.Coffee.System.features.shared_rewards.SharedRewardsEntity;
 import com.CoffeeGroup.Coffee.System.features.tier.TierEntity;
+import com.CoffeeGroup.Coffee.System.features.user.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -58,6 +59,11 @@ public class ClientEntity {
     //SharedReward Receptor Relation
     @OneToMany(mappedBy = "receptor")
     private List<SharedRewardsEntity>RewardReceptor;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity usuario;
+
 
 
 }

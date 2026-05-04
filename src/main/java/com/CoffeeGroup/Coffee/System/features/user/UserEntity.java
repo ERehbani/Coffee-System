@@ -1,9 +1,13 @@
 package com.CoffeeGroup.Coffee.System.features.user;
 
+import com.CoffeeGroup.Coffee.System.features.cafe.CafeEntity;
+import com.CoffeeGroup.Coffee.System.features.client.ClientEntity;
+import com.CoffeeGroup.Coffee.System.features.role.RoleEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -32,4 +36,14 @@ public class UserEntity {
 
     //Relacion Rol
 
+
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private RoleEntity role;
+
+    @ManyToMany(mappedBy = "users")
+    private List<CafeEntity> cafes;
+
+    @OneToOne(mappedBy = "usuario")
+    private ClientEntity cliente;
 }

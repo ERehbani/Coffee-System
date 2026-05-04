@@ -1,6 +1,7 @@
 package com.CoffeeGroup.Coffee.System.features.cafe;
 
 import com.CoffeeGroup.Coffee.System.features.product.ProductEntity;
+import com.CoffeeGroup.Coffee.System.features.user.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
@@ -52,5 +53,11 @@ public class CafeEntity {
 
     private String schedule;
 
-
+    @ManyToMany
+    @JoinTable(
+            name = "cafe_user",
+            joinColumns = @JoinColumn(name = "cafe_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<UserEntity> users;
 }
