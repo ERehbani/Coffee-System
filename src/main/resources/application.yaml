@@ -3,8 +3,8 @@ spring:
     name: Coffee-System
   datasource:
     url: ${DB_URL:jdbc:mysql://localhost:3306/coffee_db}
-    username: ${DB_USER:root}
-    password: ${DB_PASSWORD:$Tomatemojado45}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
 
   jpa:
     hibernate:
