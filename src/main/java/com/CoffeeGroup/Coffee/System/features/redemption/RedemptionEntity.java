@@ -24,12 +24,11 @@ public class RedemptionEntity {
     @Column(name = "external_id", nullable = false,unique = true)
     private UUID externalId;
 
-
     @Column
     private Date date;
 
     @Column
-    private Integer points_used;
+    private Integer usedPoints;
 
     @Column
     private Boolean state;

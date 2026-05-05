@@ -1,11 +1,12 @@
 package com.CoffeeGroup.Coffee.System.features.benefit;
 
-import com.CoffeeGroup.Coffee.System.features.shared_rewards.SharedRewardsEntity;
+import com.CoffeeGroup.Coffee.System.features.benefit_type.BenefitTypeEntity;
+import com.CoffeeGroup.Coffee.System.features.cafe.CafeEntity;
+import com.CoffeeGroup.Coffee.System.features.shared_benefits.SharedBenefitsEntity;
 import com.CoffeeGroup.Coffee.System.features.tier.TierEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -27,6 +28,9 @@ public class BenefitEntity {
     private UUID externalId;
 
     @Column
+    private String name;
+
+    @Column
     private String description;
 
     @Column
@@ -44,8 +48,6 @@ public class BenefitEntity {
     @Column
     private Boolean status;
 
-    // Relacion tipo
-    // Relacion cafeteria
     @Column
     private Boolean isPublic;
 
@@ -58,6 +60,16 @@ public class BenefitEntity {
     private TierEntity tier;
     //Relacion Beneficio compartido
     @OneToMany(mappedBy = "benefit")
-    private List<SharedRewardsEntity>sharedRewards;
+    private List<SharedBenefitsEntity>sharedRewards;
 
+
+    // Relacion tipo
+    @ManyToOne
+    @JoinColumn(name = "benefit_type_id", nullable = false)
+    private BenefitTypeEntity benefitType;
+
+    // Relacion cafeteria
+    @ManyToOne
+    @JoinColumn(name = "cafe_id") // No es null porque el beneficio puede ser general, de la app
+    private CafeEntity cafe_id;
 }

@@ -1,5 +1,6 @@
 package com.CoffeeGroup.Coffee.System.features.purchase;
 
+import com.CoffeeGroup.Coffee.System.features.cafe.CafeEntity;
 import com.CoffeeGroup.Coffee.System.features.client.ClientEntity;
 import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
 import jakarta.persistence.*;
@@ -7,6 +8,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -28,13 +30,18 @@ public class PurchaseEntity {
     private Date date;
 
     @Column
-    private BigDecimal price;
+    private BigDecimal total_amount;
 
     @OneToOne
     @JoinColumn(name = "redemption_id")
     private RedemptionEntity redemption_id;
+
     @ManyToOne
     @JoinColumn(name = "client_id")
     private ClientEntity client_id;
+
+    @ManyToOne
+    @JoinColumn(name = "cafe_id")
+    private CafeEntity cafe_id;
 
 }
