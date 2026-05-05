@@ -54,11 +54,14 @@ public class CafeEntity {
 
     private String schedule;
 
-
+    // Relacion muchos a muchos de usuarios x cafeteria
     @ManyToMany
     @JoinTable(
             name = "cafe_x_user",
-            joinColumns = @JoinColumn(name = "cafe_id"),
+            joinColumns =  @JoinColumn(name = "cafe_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     private List<UserEntity> users;
+
+
+}
