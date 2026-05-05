@@ -1,6 +1,7 @@
-package com.CoffeeGroup.Coffee.System.features.role;
+package com.CoffeeGroup.Coffee.System.features.benefit_type;
 
-import com.CoffeeGroup.Coffee.System.features.user.UserEntity;
+
+import com.CoffeeGroup.Coffee.System.features.benefit.BenefitEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,14 +9,13 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "roles")
-@Getter
+@Table(name = "benefits")
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
-public class RoleEntity {
+public class BenefitTypeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +27,7 @@ public class RoleEntity {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "users")
-    private List<UserEntity> users;
+    @OneToMany(mappedBy = "benefit_type")
+    private List<BenefitEntity> benefits;
+
 }

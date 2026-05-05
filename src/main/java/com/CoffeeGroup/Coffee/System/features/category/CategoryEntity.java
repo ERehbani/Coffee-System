@@ -1,8 +1,10 @@
 package com.CoffeeGroup.Coffee.System.features.category;
 
+import com.CoffeeGroup.Coffee.System.features.product.ProductEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -22,6 +24,10 @@ public class CategoryEntity {
 
     @Column
     private String name;
+
+    // Relacion con productos
+    @OneToMany(mappedBy = "category")
+    private List<ProductEntity> products;
 
 }
 

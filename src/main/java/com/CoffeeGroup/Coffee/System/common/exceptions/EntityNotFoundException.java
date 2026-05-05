@@ -1,4 +1,4 @@
-package com.CoffeeGroup.Coffee.System.common;
+package com.CoffeeGroup.Coffee.System.common.exceptions;
 
 public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(String message) {

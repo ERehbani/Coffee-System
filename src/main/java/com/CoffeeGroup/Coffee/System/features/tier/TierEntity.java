@@ -1,5 +1,6 @@
 package com.CoffeeGroup.Coffee.System.features.tier;
 
+import com.CoffeeGroup.Coffee.System.features.benefit.BenefitEntity;
 import com.CoffeeGroup.Coffee.System.features.client.ClientEntity;
 import jakarta.persistence.*;
 import jakarta.security.auth.message.ClientAuth;
@@ -32,7 +33,10 @@ public class TierEntity {
 
     //relation tier
     @OneToMany(mappedBy = "tier")
-    private List<ClientEntity>client;
+    private List<ClientEntity> clients;
+
+    @OneToMany(mappedBy = "benefits")
+    private List<BenefitEntity> benefits;
 
 
 }

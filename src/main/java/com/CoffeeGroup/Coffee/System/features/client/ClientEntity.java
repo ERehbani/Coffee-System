@@ -2,7 +2,7 @@ package com.CoffeeGroup.Coffee.System.features.client;
 
 import com.CoffeeGroup.Coffee.System.features.purchase.PurchaseEntity;
 import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
-import com.CoffeeGroup.Coffee.System.features.shared_rewards.SharedRewardsEntity;
+import com.CoffeeGroup.Coffee.System.features.shared_benefits.SharedBenefitsEntity;
 import com.CoffeeGroup.Coffee.System.features.tier.TierEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -32,19 +32,19 @@ public class ClientEntity {
     private String name;
 
     @Column
-    private String profilePhoto;
+    private String profileImage;
 
     @Column
     private Integer currentPoints;
 
     @Column
-    private Integer historicalPoints;
+    private Integer historicPoints;
 
-    @OneToMany(mappedBy = "client_id")
-    private List<RedemptionEntity> List_Redemption;
+    @OneToMany(mappedBy = "redemption_list")
+    private List<RedemptionEntity> redepmtionList;
 
-    @OneToMany(mappedBy = "client_id")
-    private List<PurchaseEntity> List_Purchase;
+    @OneToMany(mappedBy = "purchase_list")
+    private List<PurchaseEntity> purchaseList;
 
     // Tier id Relation
     @ManyToOne
@@ -52,12 +52,12 @@ public class ClientEntity {
     private TierEntity tier;
 
     // SharedRewards emisor relation
-    @OneToMany(mappedBy = "emisor")
-    private List<SharedRewardsEntity> RewardEmisor;
+    @OneToMany(mappedBy = "transmitter")
+    private List<SharedBenefitsEntity> RewardEmisor;
 
     //SharedReward Receptor Relation
-    @OneToMany(mappedBy = "receptor")
-    private List<SharedRewardsEntity>RewardReceptor;
+    @OneToMany(mappedBy = "receiver")
+    private List<SharedBenefitsEntity>RewardReceptor;
 
 
 }

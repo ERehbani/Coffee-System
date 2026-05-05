@@ -1,4 +1,4 @@
-package com.CoffeeGroup.Coffee.System.features.shared_rewards;
+package com.CoffeeGroup.Coffee.System.features.shared_benefits;
 
 import com.CoffeeGroup.Coffee.System.features.benefit.BenefitEntity;
 import com.CoffeeGroup.Coffee.System.features.client.ClientEntity;
@@ -8,14 +8,14 @@ import lombok.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "shared_reward")
+@Table(name = "shared_benefits")
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 
-public class SharedRewardsEntity {
+public class SharedBenefitsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,7 +35,6 @@ public class SharedRewardsEntity {
     private BenefitEntity benefit;
 
     //RELACION CON CLIENTE EMISOR
-
     @ManyToOne
     @JoinColumn(name = "emisor_id",nullable = false)
     private ClientEntity emisor;

@@ -27,24 +27,23 @@ public class PurchaseDetailsEntity {
 
     // --- Relacion Compra ---
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "compra_id", nullable = false)
+    @JoinColumn(name = "purchase_id", nullable = false)
     @ToString.Exclude
     private PurchaseEntity purchase;
 
     // --- Relacion Producto ---
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "producto_id", nullable = false)
+    @JoinColumn(name = "product_id", nullable = false)
     @ToString.Exclude
     private ProductEntity product;
-
 
     @Column
     private Integer amount;
 
     @Column
-    private BigDecimal priceUnit;
+    private BigDecimal unitPrice;
 
     @Column
-    private Integer pointsGenerated;
+    private Integer generatedPoints;
 
 }
