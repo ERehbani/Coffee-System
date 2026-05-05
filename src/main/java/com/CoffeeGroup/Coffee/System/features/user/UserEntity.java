@@ -39,7 +39,6 @@ public class UserEntity {
     @Column
     private Date creationDate;
 
-    //Relacion Rol
     @ManyToOne
     @JoinColumn(name = "role_id", nullable = false)
     private RoleEntity role_id;
