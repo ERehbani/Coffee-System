@@ -10,7 +10,6 @@ import lombok.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
 import java.util.UUID;
 
 @Entity
@@ -45,17 +44,9 @@ public class UserEntity {
     @JoinColumn(name = "role_id", nullable = false)
     private RoleEntity role_id;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "cafes")
     private List<CafeEntity> cafes;
 
-
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private RoleEntity role;
-
-    @ManyToMany(mappedBy = "users")
-    private List<CafeEntity> cafes;
-
-    @OneToOne(mappedBy = "usuario")
-    private ClientEntity cliente;
+    @OneToOne(mappedBy = "users")
+    private ClientEntity client;
 }
