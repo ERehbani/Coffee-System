@@ -1,5 +1,6 @@
 package com.CoffeeGroup.Coffee.System.features.cafe;
 
+import com.CoffeeGroup.Coffee.System.common.Model.Email;
 import com.CoffeeGroup.Coffee.System.features.product.ProductEntity;
 import com.CoffeeGroup.Coffee.System.features.user.UserEntity;
 import jakarta.persistence.*;
@@ -38,8 +39,9 @@ public class CafeEntity {
     @ToString.Exclude
     private List<ProductEntity> products;
 
-    @Column(nullable = false, unique = true)
-    private String email;
+    @Embedded
+    @AttributeOverride(name = "value", column = @Column(name = "email_address", unique = true, nullable = false))
+    private Email email;
 
     private String phoneNumber;
 
