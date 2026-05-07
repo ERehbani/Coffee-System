@@ -1,8 +1,10 @@
 package com.CoffeeGroup.Coffee.System.features.benefit;
 
+import com.CoffeeGroup.Coffee.System.features.cafe.CafeEntity;
 import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
 import com.CoffeeGroup.Coffee.System.features.shared_rewards.SharedRewardsEntity;
 import com.CoffeeGroup.Coffee.System.features.tier.TierEntity;
+import com.CoffeeGroup.Coffee.System.features.type.TypeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -45,23 +47,32 @@ public class BenefitEntity {
     @Column
     private Boolean status;
 
-    // Relacion tipo
-    // Relacion cafeteria
     @Column
     private Boolean isPublic;
 
     @Column
     private Integer maxRedemptions;
 
+    // Relation with type
+    @ManyToOne
+    @JoinColumn(name = "type_id",nullable = false)
+    private TypeEntity type;
+
+    // Relacion cafeteria
+    @ManyToOne
+    @JoinColumn(name = "cafe_id",nullable = false)
+    private CafeEntity cafe;
+
     // Relacion tier
     @ManyToOne
     @JoinColumn(name = "tier_id",nullable = false)
     private TierEntity tier;
-    //Relacion Beneficio compartido
-    @OneToMany(mappedBy = "benefit")
-    private List<SharedRewardsEntity>sharedRewards;
 
-    // --- Relacion Canje ---
+    //Relation sharedRewards
+    @OneToOne(mappedBy = "benefit")
+    private SharedRewardsEntity sharedRewards;
+
+    // --- Relation Redemption ---
     @OneToMany(mappedBy = "benefit", fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<RedemptionEntity> redemptions;
