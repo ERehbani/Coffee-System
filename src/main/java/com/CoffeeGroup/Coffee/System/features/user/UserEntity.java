@@ -22,16 +22,20 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "external_id", nullable = false, unique = true)
+    @Column(name = "external_id", nullable = false, unique = true, updatable = false)
     private UUID externalId;
 
-    @Column
+    @Column(name = "password")
     private String password;
 
-    @Column
+    @Embedded
+    @AttributeOverride(name = "value", column = @Column(name = "email_address", unique = true, nullable = false))
+    private Email email;
+
+    @Column(name = "state")
     private Boolean state;
 
-    @Column
+    @Column(name = "creation_date") // Nombre de tablas o columnas con snake_case recuerden
     private Date creationDate;
 
     //Relacion Rol

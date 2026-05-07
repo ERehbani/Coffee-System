@@ -1,5 +1,6 @@
 package com.CoffeeGroup.Coffee.System.features.benefit;
 
+import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
 import com.CoffeeGroup.Coffee.System.features.shared_rewards.SharedRewardsEntity;
 import com.CoffeeGroup.Coffee.System.features.tier.TierEntity;
 import jakarta.persistence.*;
