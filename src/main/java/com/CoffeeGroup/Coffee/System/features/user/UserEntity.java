@@ -21,22 +21,23 @@ import java.util.UUID;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_user")
     private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true, updatable = false)
     private UUID externalId;
 
-    @Column(name = "password")
+    @Column(name = "password_user")
     private String password;
 
     @Embedded
     @AttributeOverride(name = "value", column = @Column(name = "email_address", unique = true, nullable = false))
     private Email email;
 
-    @Column(name = "state")
+    @Column(name = "state_user")
     private Boolean state;
 
-    @Column(name = "creation_date") // Nombre de tablas o columnas con snake_case recuerden
+    @Column(name = "creation_date")
     private Date creationDate;
 
     //Relacion Rol
@@ -49,6 +50,6 @@ public class UserEntity {
     @ManyToMany(mappedBy = "users")
     private List<CafeEntity> cafes;
 
-    @OneToOne(mappedBy = "usuario")
-    private ClientEntity cliente;
+    @OneToOne(mappedBy = "user")
+    private ClientEntity client;
 }

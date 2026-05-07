@@ -19,22 +19,22 @@ import java.util.UUID;
 public class PurchaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_purchase")
     private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    @Column
+    @Column(name = "date_purchase")
     private Date date;
 
-    @Column
+    @Column(name = "price_purchase")
     private BigDecimal price;
 
     @OneToOne
     @JoinColumn(name = "redemption_id")
-    private RedemptionEntity redemption_id;
+    private RedemptionEntity redemption;
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private ClientEntity client_id;
-
+    private ClientEntity client;
 }

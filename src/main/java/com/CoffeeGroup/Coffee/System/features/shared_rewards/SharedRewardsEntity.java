@@ -37,12 +37,12 @@ public class SharedRewardsEntity {
     //RELACION CON CLIENTE EMISOR
 
     @ManyToOne
-    @JoinColumn(name = "emisor_id",nullable = false)
-    private ClientEntity emisor;
+    @JoinColumn(name = "id_IssuingClient",nullable = false)
+    private ClientEntity IssuingClient;
 
     //RELACION CON CLIENTE RECEPTOR
     @ManyToOne
-    @JoinColumn(name = "receptor_id",nullable = false)
-    private  ClientEntity receptor;
+    @JoinColumn(name = "id_receivingclient",nullable = false)
+    private  ClientEntity receivingclient;
 
 }

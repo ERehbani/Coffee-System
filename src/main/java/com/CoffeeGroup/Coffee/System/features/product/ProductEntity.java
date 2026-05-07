@@ -14,11 +14,12 @@ import java.util.UUID;
 @NoArgsConstructor
 @ToString
 @Builder
-@Table(name = "Product")
+@Table(name = "Products")
 @Entity
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_product")
     private long id;
 
 
@@ -27,18 +28,20 @@ public class ProductEntity {
 
     // --- Relacion Cafeteria ---
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cafeteria_id")
+    @JoinColumn(name = "id_cafe")
     @ToString.Exclude
     private CafeEntity cafe;
 
-    @Column(nullable = false)
+    @Column(nullable = false,name = "name_product")
     private String name;
 
-    @Column(length = 500)
+    @Column(length = 500,name = "description_product")
     private String description;
 
+    @Column(name = "price_product")
     private BigDecimal price;
 
+    @Column(name = "pointsAwarded_product")
     private Integer pointsAwarded;
 
     // --- Relacion Categoria ---
@@ -53,7 +56,7 @@ public class ProductEntity {
     private List<PurchaseDetailsEntity> purchaseDetails;
 
 
-    @Column(nullable = false)
+    @Column(nullable = false,name = "State_product")
     private Boolean state;
 
 

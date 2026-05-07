@@ -19,12 +19,13 @@ public class RoleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_role")
     private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    @Column
+    @Column(name = "name_role")
     private String name;
 
     @OneToMany (mappedBy = "role")

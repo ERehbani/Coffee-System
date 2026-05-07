@@ -26,29 +26,29 @@ public class RedemptionEntity {
     private UUID externalId;
 
 
-    @Column
+    @Column(name = "date_redemption")
     private Date date;
 
-    @Column
+    @Column(name = "pointsused_redemption")
     private Integer points_used;
 
-    @Column
+    @Column(name = "state_redemption")
     private Boolean state;
 
-    @Column
+    @Column(name = "validationCode_redemption")
     private String validationCode;
 
     @OneToOne
     @JoinColumn(name = "purchase_id")
-    private PurchaseEntity purchase_id;
+    private PurchaseEntity purchase;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private ClientEntity client_id;
+    private ClientEntity client;
 
     // --- Relacion Beneficio ---
     @ManyToOne
-    @JoinColumn(name = "beneficio_id")
+    @JoinColumn(name = "benefit_id")
     private BenefitEntity benefit;
 
 }

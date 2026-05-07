@@ -15,12 +15,13 @@ import java.util.UUID;
 public class CategoryEntity {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "Id_Category")
     private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    @Column
+    @Column(name = "Name_Category")
     private String name;
 
 }

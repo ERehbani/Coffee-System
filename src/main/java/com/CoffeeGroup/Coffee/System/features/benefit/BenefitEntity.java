@@ -24,56 +24,57 @@ import java.util.UUID;
 public class BenefitEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "Id_Benefit")
+    private Long Id;
 
     @Column(name = "external_id", nullable = false, unique = true)
-    private UUID externalId;
+    private UUID ExternalId;
 
-    @Column
-    private String description;
+    @Column(name = "Description_Benefit")
+    private String Description;
 
-    @Column
-    private Integer price;
+    @Column(name = "Price_Benefit")
+    private Integer Price;
 
-    @Column
-    private Integer pointsCost;
+    @Column(name = "PoinstCost_Benefit")
+    private Integer PointsCost;
 
-    @Column
-    private Date startDate;
+    @Column(name = "StarDate_Benefit")
+    private Date StartDate;
 
-    @Column
-    private Date endDate;
+    @Column(name = "EndDate_Benefit")
+    private Date EndDate;
 
-    @Column
-    private Boolean status;
+    @Column(name = "Status_Benefit")
+    private Boolean Status;
 
-    @Column
+    @Column(name = "IsPublic_Benefit")
     private Boolean isPublic;
 
-    @Column
-    private Integer maxRedemptions;
+    @Column(name = "MaxRedemptions_Benefit")
+    private Integer MaxRedemptions;
 
     // Relation with type
     @ManyToOne
     @JoinColumn(name = "type_id",nullable = false)
-    private TypeEntity type;
+    private TypeEntity Type;
 
     // Relacion cafeteria
     @ManyToOne
-    @JoinColumn(name = "cafe_id",nullable = false)
-    private CafeEntity cafe;
+    @JoinColumn(name = "CafeEntity_id",nullable = false)
+    private CafeEntity Cafe;
 
     // Relacion tier
     @ManyToOne
     @JoinColumn(name = "tier_id",nullable = false)
-    private TierEntity tier;
+    private TierEntity Tier;
 
     //Relation sharedRewards
     @OneToOne(mappedBy = "benefit")
-    private SharedRewardsEntity sharedRewards;
+    private SharedRewardsEntity SharedRewards;
 
     // --- Relation Redemption ---
-    @OneToMany(mappedBy = "benefit", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "benefit",fetch = FetchType.LAZY)
     @ToString.Exclude
-    private List<RedemptionEntity> redemptions;
+    private List<RedemptionEntity> Redemptions;
 }
