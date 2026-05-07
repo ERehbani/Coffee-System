@@ -18,12 +18,13 @@ import java.util.UUID;
 public class SharedRewardsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_SharedReward")
     private Long id;
 
-    @Column(nullable = false)
-    private Long Reward_id;
+    @Column(nullable = false,name = "id_reward")
+    private Long Reward;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "date_SharedReward")
     private java.time.LocalDate date;
 
     @Column(name = "external_id", nullable = false, unique = true)
@@ -37,12 +38,12 @@ public class SharedRewardsEntity {
     //RELACION CON CLIENTE EMISOR
 
     @ManyToOne
-    @JoinColumn(name = "id_IssuingClient",nullable = false)
+    @JoinColumn(name = "IssuingClient",nullable = false)
     private ClientEntity IssuingClient;
 
     //RELACION CON CLIENTE RECEPTOR
     @ManyToOne
-    @JoinColumn(name = "id_receivingclient",nullable = false)
+    @JoinColumn(name = "receivingclient",nullable = false)
     private  ClientEntity receivingclient;
 
 }
