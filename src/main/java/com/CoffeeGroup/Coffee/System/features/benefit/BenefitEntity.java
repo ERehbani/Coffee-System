@@ -60,4 +60,8 @@ public class BenefitEntity {
     @OneToMany(mappedBy = "benefit")
     private List<SharedRewardsEntity>sharedRewards;
 
+    // --- Relacion Canje ---
+    @OneToMany(mappedBy = "benefit", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private List<RedemptionEntity> redemptions;
 }

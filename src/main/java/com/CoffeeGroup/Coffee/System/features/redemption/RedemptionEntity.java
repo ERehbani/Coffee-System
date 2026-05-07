@@ -1,5 +1,6 @@
 package com.CoffeeGroup.Coffee.System.features.redemption;
 
+import com.CoffeeGroup.Coffee.System.features.benefit.BenefitEntity;
 import com.CoffeeGroup.Coffee.System.features.client.ClientEntity;
 import com.CoffeeGroup.Coffee.System.features.purchase.PurchaseEntity;
 import jakarta.persistence.*;
@@ -44,4 +45,10 @@ public class RedemptionEntity {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private ClientEntity client_id;
+
+    // --- Relacion Beneficio ---
+    @ManyToOne
+    @JoinColumn(name = "beneficio_id")
+    private BenefitEntity benefit;
+
 }
