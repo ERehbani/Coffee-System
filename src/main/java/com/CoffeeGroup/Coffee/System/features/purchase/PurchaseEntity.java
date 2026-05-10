@@ -19,16 +19,15 @@ import java.util.UUID;
 public class PurchaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_purchase")
     private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    @Column(name = "date_purchase")
+    @Column(name = "date")
     private Date date;
 
-    @Column(name = "price_purchase")
+    @Column(name = "price")
     private BigDecimal price;
 
     @OneToOne

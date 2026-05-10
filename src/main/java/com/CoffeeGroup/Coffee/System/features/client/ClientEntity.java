@@ -22,42 +22,40 @@ import java.util.UUID;
 public class ClientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_Client")
     private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    @Column(name = "name_client")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "profilephoto_client")
+    @Column(name = "profile_photo")
     private String profilePhoto;
 
-    @Column(name = "currentPoints_client")
+    @Column(name = "current_points")
     private Integer currentPoints;
 
-    @Column(name = "historicalPoints_client")
+    @Column(name = "historical_points")
     private Integer historicalPoints;
 
     @OneToMany(mappedBy = "client")
-    private List<RedemptionEntity> List_Redemption;
+    private List<RedemptionEntity> listRedemption;
 
     @OneToMany(mappedBy = "client")
-    private List<PurchaseEntity> List_Purchase;
+    private List<PurchaseEntity> listPurchase;
 
     // Tier id Relation
     @ManyToOne
     @JoinColumn(name="tier_id",nullable = false)
     private TierEntity tier;
 
-    // SharedRewards emisor relation
-    @OneToMany(mappedBy = "IssuingClient")
-    private List<SharedRewardsEntity> RewardEmisor;
+    @OneToMany(mappedBy = "transmitter")
+    private List<SharedRewardsEntity> transmitter;
 
     //SharedReward Receptor Relation
-    @OneToMany(mappedBy = "receivingclient")
-    private List<SharedRewardsEntity>RewardReceptor;
+    @OneToMany(mappedBy = "receiver")
+    private List<SharedRewardsEntity> receiver;
 
     @OneToOne
     @JoinColumn(name = "user_id")

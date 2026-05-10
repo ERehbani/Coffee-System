@@ -20,7 +20,6 @@ public class PurchaseDetailsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_purchase_details")
     private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true)
@@ -39,13 +38,13 @@ public class PurchaseDetailsEntity {
     private ProductEntity product;
 
 
-    @Column(name = "amount_purchase_details")
+    @Column(name = "amount")
     private Integer amount;
 
-    @Column(name = "priceunit_purchase_details")
-    private BigDecimal priceUnit;
+    @Column(name = "unit_price")
+    private BigDecimal unitPrice;
 
-    @Column(name = "pointsGenerated_purchase_details")
-    private Integer pointsGenerated;
+    @Column(name = "generatedPoints")
+    private Integer generatedPoints;
 
 }

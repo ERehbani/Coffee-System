@@ -21,7 +21,6 @@ import java.util.UUID;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
     private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true, updatable = false)
@@ -34,7 +33,7 @@ public class UserEntity {
     @AttributeOverride(name = "value", column = @Column(name = "email_address", unique = true, nullable = false))
     private Email email;
 
-    @Column(name = "state_user")
+    @Column(name = "state")
     private Boolean state;
 
     @Column(name = "creation_date")

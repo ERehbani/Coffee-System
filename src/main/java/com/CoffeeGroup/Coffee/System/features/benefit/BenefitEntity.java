@@ -4,11 +4,10 @@ import com.CoffeeGroup.Coffee.System.features.cafe.CafeEntity;
 import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
 import com.CoffeeGroup.Coffee.System.features.shared_rewards.SharedRewardsEntity;
 import com.CoffeeGroup.Coffee.System.features.tier.TierEntity;
-import com.CoffeeGroup.Coffee.System.features.type.TypeEntity;
+import com.CoffeeGroup.Coffee.System.features.benefit_type.BenefitTypeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -24,50 +23,49 @@ import java.util.UUID;
 public class BenefitEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_Benefit")
-    private Long Id;
+    private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true)
-    private UUID ExternalId;
+    private UUID externalId;
 
-    @Column(name = "Description_Benefit")
-    private String Description;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "Price_Benefit")
-    private Integer Price;
+    @Column(name = "price")
+    private Integer price;
 
-    @Column(name = "PoinstCost_Benefit")
-    private Integer PointsCost;
+    @Column(name = "points_cost")
+    private Integer pointsCost;
 
-    @Column(name = "StarDate_Benefit")
-    private Date StartDate;
+    @Column(name = "start_date")
+    private Date startDate;
 
-    @Column(name = "EndDate_Benefit")
-    private Date EndDate;
+    @Column(name = "end_date")
+    private Date endDate;
 
-    @Column(name = "Status_Benefit")
-    private Boolean Status;
+    @Column(name = "status")
+    private Boolean status;
 
-    @Column(name = "IsPublic_Benefit")
+    @Column(name = "is_public")
     private Boolean isPublic;
 
-    @Column(name = "MaxRedemptions_Benefit")
-    private Integer MaxRedemptions;
+    @Column(name = "max_redemptions")
+    private Integer maxRedemptions;
 
-    // Relation with type
+    // Relacion con cafetería
     @ManyToOne
     @JoinColumn(name = "type_id",nullable = false)
-    private TypeEntity Type;
+    private BenefitTypeEntity Type;
 
-    // Relacion cafeteria
+    // Relacion cafetería
     @ManyToOne
-    @JoinColumn(name = "CafeEntity_id",nullable = false)
-    private CafeEntity Cafe;
+    @JoinColumn(name = "cafe_id",nullable = false)
+    private CafeEntity cafe;
 
     // Relacion tier
     @ManyToOne
     @JoinColumn(name = "tier_id",nullable = false)
-    private TierEntity Tier;
+    private TierEntity tier;
 
     //Relation sharedRewards
     @OneToOne(mappedBy = "benefit")

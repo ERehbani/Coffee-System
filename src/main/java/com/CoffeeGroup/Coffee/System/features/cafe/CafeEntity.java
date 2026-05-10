@@ -21,16 +21,15 @@ import java.util.UUID;
 public class CafeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_Cafe")
     private Long id;
 
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    @Column(nullable = false, name = "Name_cafe")
+    @Column(nullable = false, name = "name")
     private String name;
 
-    @Column(nullable = false,name = "Address_Cafe")
+    @Column(nullable = false,name = "address")
     private String address;
 
     // --- Relacion Producto ---
@@ -42,19 +41,19 @@ public class CafeEntity {
     @AttributeOverride(name = "value", column = @Column(name = "email_address", unique = true, nullable = false))
     private Email email;
 
-    @Column(name = "PhoneNumber_cafe")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
 
-    @Column(length = 500, name = "Description_cafe")
+    @Column(length = 500, name = "description")
     private String description;
 
-    @Column(nullable = false,name = "State_Cafe")
+    @Column(nullable = false,name = "state")
     private Boolean state;
 
-    @Column(name= "Image_cafe")
+    @Column(name= "image")
     private String image;
-    @Column(name = "schedule_cafe")
+    @Column(name = "schedule")
     private String schedule;
 
     @ManyToMany
