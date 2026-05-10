@@ -55,7 +55,7 @@ public class ProductEntity {
     private List<PurchaseDetailsEntity> purchaseDetails;
 
 
-    @Column(nullable = false,name = "state_product")
+    @Column(nullable = false,name = "state")
     private Boolean state;
 
 
