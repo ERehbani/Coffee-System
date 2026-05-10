@@ -19,7 +19,7 @@ import java.util.UUID;
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
 
     @Column(name = "external_id", nullable = false, unique = true)
