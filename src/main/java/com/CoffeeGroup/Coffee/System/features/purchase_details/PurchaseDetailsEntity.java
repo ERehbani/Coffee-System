@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -44,7 +43,7 @@ public class PurchaseDetailsEntity {
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
-    @Column(name = "generatedPoints")
+    @Column(name = "generated_points")
     private Integer generatedPoints;
 
 }

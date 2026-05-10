@@ -2,10 +2,10 @@ package com.CoffeeGroup.Coffee.System.features.cafe;
 
 import com.CoffeeGroup.Coffee.System.common.Model.Email;
 import com.CoffeeGroup.Coffee.System.features.product.ProductEntity;
+import com.CoffeeGroup.Coffee.System.features.purchase.PurchaseEntity;
 import com.CoffeeGroup.Coffee.System.features.user.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
 
 import java.util.List;
 import java.util.UUID;
@@ -36,6 +36,10 @@ public class CafeEntity {
     @OneToMany(mappedBy = "cafe", fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<ProductEntity> products;
+
+    @OneToMany(mappedBy = "cafe", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private List<PurchaseEntity> purchases;
 
     @Embedded
     @AttributeOverride(name = "value", column = @Column(name = "email_address", unique = true, nullable = false))

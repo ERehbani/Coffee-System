@@ -1,12 +1,15 @@
 package com.CoffeeGroup.Coffee.System.features.purchase;
 
+import com.CoffeeGroup.Coffee.System.features.cafe.CafeEntity;
 import com.CoffeeGroup.Coffee.System.features.client.ClientEntity;
+import com.CoffeeGroup.Coffee.System.features.purchase_details.PurchaseDetailsEntity;
 import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -36,4 +39,11 @@ public class PurchaseEntity {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private ClientEntity client;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cafe_id", nullable = false)
+    private CafeEntity cafe;
+
+    @OneToMany(mappedBy = "purchase", fetch = FetchType.LAZY)
+    private List<PurchaseDetailsEntity> purchaseDetails;
 }
