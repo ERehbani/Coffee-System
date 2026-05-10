@@ -27,7 +27,7 @@ public class ProductEntity {
 
     // --- Relacion Cafeteria ---
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cafe")
+    @JoinColumn(name = "cafe_id")
     @ToString.Exclude
     private CafeEntity cafe;
 
@@ -45,7 +45,7 @@ public class ProductEntity {
 
     // --- Relacion Categoria ---
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoria_id")
+    @JoinColumn(name = "category_id")
     @ToString.Exclude
     private CategoryEntity category;
 
