@@ -19,7 +19,7 @@ import java.util.UUID;
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
 
     @Column(name = "external_id", nullable = false, unique = true)
@@ -27,7 +27,7 @@ public class ProductEntity {
 
     // --- Relacion Cafeteria ---
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cafe")
+    @JoinColumn(name = "cafe_id")
     @ToString.Exclude
     private CafeEntity cafe;
 
@@ -45,7 +45,7 @@ public class ProductEntity {
 
     // --- Relacion Categoria ---
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoria_id")
+    @JoinColumn(name = "category_id")
     @ToString.Exclude
     private CategoryEntity category;
 
@@ -55,7 +55,7 @@ public class ProductEntity {
     private List<PurchaseDetailsEntity> purchaseDetails;
 
 
-    @Column(nullable = false,name = "state_product")
+    @Column(nullable = false,name = "state")
     private Boolean state;
 
 
