@@ -29,13 +29,13 @@ public class RedemptionEntity {
     @Column(name = "date_redemption")
     private Date date;
 
-    @Column(name = "pointsused_redemption")
-    private Integer points_used;
+    @Column(name = "used_points")
+    private Integer usedPoints;
 
-    @Column(name = "state_redemption")
+    @Column(name = "state")
     private Boolean state;
 
-    @Column(name = "validationCode_redemption")
+    @Column(name = "validation_code")
     private String validationCode;
 
     @OneToOne

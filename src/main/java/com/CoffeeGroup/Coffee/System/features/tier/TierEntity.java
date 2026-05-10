@@ -19,16 +19,15 @@ import java.util.UUID;
 public class TierEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_tier")
     private Long id;
 
     @Column (name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    @Column(name = "name_tier")
+    @Column(name = "name")
     private String Name;
 
-    @Column(name = "MinPoints_tier")
+    @Column(name = "min_points")
     private Integer MinPoints;
 
     //relation tier

@@ -1,4 +1,4 @@
-package com.CoffeeGroup.Coffee.System.features.type;
+package com.CoffeeGroup.Coffee.System.features.benefit_type;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,7 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TypeEntity {
+public class BenefitTypeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_type")
@@ -21,6 +21,6 @@ public class TypeEntity {
     @Column(name = "external_id", nullable = false, unique = true)
     private UUID externalId;
 
-    @Column(name = "name_typer")
+    @Column(name = "name")
     private String name;
 }
