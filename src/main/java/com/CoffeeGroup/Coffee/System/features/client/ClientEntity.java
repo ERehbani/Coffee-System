@@ -2,6 +2,7 @@ package com.CoffeeGroup.Coffee.System.features.client;
 
 import com.CoffeeGroup.Coffee.System.features.purchase.PurchaseEntity;
 import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
+import com.CoffeeGroup.Coffee.System.features.review.ReviewEntity;
 import com.CoffeeGroup.Coffee.System.features.shared_rewards.SharedRewardsEntity;
 import com.CoffeeGroup.Coffee.System.features.tier.TierEntity;
 import com.CoffeeGroup.Coffee.System.features.user.UserEntity;
@@ -61,6 +62,7 @@ public class ClientEntity {
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
-
+    @OneToMany(mappedBy = "client")
+    private List<ReviewEntity> Review;
 
 }

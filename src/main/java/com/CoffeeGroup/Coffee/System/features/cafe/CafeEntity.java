@@ -4,10 +4,10 @@ import com.CoffeeGroup.Coffee.System.common.Model.Email;
 import com.CoffeeGroup.Coffee.System.features.benefit.BenefitEntity;
 import com.CoffeeGroup.Coffee.System.features.product.ProductEntity;
 import com.CoffeeGroup.Coffee.System.features.purchase.PurchaseEntity;
+import com.CoffeeGroup.Coffee.System.features.review.ReviewEntity;
 import com.CoffeeGroup.Coffee.System.features.user.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
-import org.apache.commons.lang3.builder.ToStringExclude;
 
 import java.util.List;
 import java.util.UUID;
@@ -75,4 +75,7 @@ public class CafeEntity {
     @OneToMany(mappedBy = "cafe", fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<BenefitEntity> benefits;
+
+    @OneToMany(mappedBy = "Caffe")
+    private List<ReviewEntity> Review;
 }
