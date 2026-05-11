@@ -76,6 +76,6 @@ public class CafeEntity {
     @ToString.Exclude
     private List<BenefitEntity> benefits;
 
-    @OneToMany(mappedBy = "Caffe")
-    private List<ReviewEntity> Review;
+    @OneToMany(mappedBy = "cafe")
+    private List<ReviewEntity> review;
 }

@@ -63,6 +63,6 @@ public class ClientEntity {
     private UserEntity user;
 
     @OneToMany(mappedBy = "client")
-    private List<ReviewEntity> Review;
+    private List<ReviewEntity> review;
 
 }
