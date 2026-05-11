@@ -20,7 +20,7 @@ public class ReviewEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private Long id;
 
     @Column(name = "external_id", nullable = false,unique = true)
     private UUID externalId;
@@ -37,6 +37,6 @@ public class ReviewEntity {
 
     @ManyToOne
     @JoinColumn(name = "cafe_id")
-    private CafeEntity Caffe;
+    private CafeEntity cafe;
 
 }
