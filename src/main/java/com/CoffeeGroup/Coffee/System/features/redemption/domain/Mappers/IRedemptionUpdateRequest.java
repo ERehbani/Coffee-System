@@ -1,0 +1,14 @@
+package com.CoffeeGroup.Coffee.System.features.redemption.domain.Mappers;
+
+import com.CoffeeGroup.Coffee.System.common.Model.IMapper;
+import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
+import com.CoffeeGroup.Coffee.System.features.redemption.domain.dto.RedemptionUpdateRequest;
+import org.mapstruct.Mapper;
+
+@Mapper(componentModel = "spring")
+public interface IRedemptionUpdateRequest extends IMapper<RedemptionUpdateRequest, RedemptionEntity> {
+
+    RedemptionEntity toEntity(RedemptionUpdateRequest redemptionUpdateRequest);
+    RedemptionUpdateRequest toDto(RedemptionEntity redemptionEntity);
+
+}
