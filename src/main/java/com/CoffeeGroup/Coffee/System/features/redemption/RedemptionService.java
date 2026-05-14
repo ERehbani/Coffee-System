@@ -1,6 +1,6 @@
 package com.CoffeeGroup.Coffee.System.features.redemption;
 
-import com.CoffeeGroup.Coffee.System.common.Exception.EntityNotFoundException;
+import com.CoffeeGroup.Coffee.System.common.exceptions.EntityNotFoundException;
 import com.CoffeeGroup.Coffee.System.features.benefit.BenefitEntity;
 import com.CoffeeGroup.Coffee.System.features.benefit.IBenefitRepository;
 import com.CoffeeGroup.Coffee.System.features.client.ClientEntity;

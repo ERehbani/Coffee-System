@@ -1,6 +1,6 @@
 package com.CoffeeGroup.Coffee.System.features.cafe;
 
-import com.CoffeeGroup.Coffee.System.common.Exception.EntityNotFoundException;
+import com.CoffeeGroup.Coffee.System.common.exceptions.EntityNotFoundException;
 import com.CoffeeGroup.Coffee.System.common.Model.Email;
 import com.CoffeeGroup.Coffee.System.features.cafe.domain.dto.CafeResponse;
 import com.CoffeeGroup.Coffee.System.features.cafe.domain.dto.CreateCafeRequest;

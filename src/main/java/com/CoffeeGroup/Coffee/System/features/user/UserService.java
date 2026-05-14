@@ -1,7 +1,7 @@
 package com.CoffeeGroup.Coffee.System.features.user;
 
 import com.CoffeeGroup.Coffee.System.common.Exception.EntityAlreadyExistsException;
-import com.CoffeeGroup.Coffee.System.common.Exception.EntityNotFoundException;
+import com.CoffeeGroup.Coffee.System.common.exceptions.EntityNotFoundException;
 import com.CoffeeGroup.Coffee.System.common.Model.Email;
 import com.CoffeeGroup.Coffee.System.features.role.RoleEntity;
 import com.CoffeeGroup.Coffee.System.features.role.RoleRepository;

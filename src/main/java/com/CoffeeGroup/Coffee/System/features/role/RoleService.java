@@ -1,7 +1,7 @@
 package com.CoffeeGroup.Coffee.System.features.role;
 
 import com.CoffeeGroup.Coffee.System.common.Exception.EntityAlreadyExistsException;
-import com.CoffeeGroup.Coffee.System.common.Exception.EntityNotFoundException;
+import com.CoffeeGroup.Coffee.System.common.exceptions.EntityNotFoundException;
 import com.CoffeeGroup.Coffee.System.features.role.domain.dto.CreateRoleRequest;
 import com.CoffeeGroup.Coffee.System.features.role.domain.dto.RoleResponse;
 import com.CoffeeGroup.Coffee.System.features.role.domain.mapper.RoleMapper;
