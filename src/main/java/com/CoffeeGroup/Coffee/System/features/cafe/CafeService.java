@@ -43,9 +43,9 @@ public class CafeService implements ICafeService {
     @Override
     public CafeResponse save(CreateCafeRequest request) {
 
-        if (repository.existsByEmail(new Email(request.email()))) {
+        /*if (repository.existsByEmail(new Email(request.email()))) {
             throw new EntityAlreadyExistsException("Email already exists");
-        }
+        }*/
 
         CafeEntity entity = mapper.toEntity(request);
 
@@ -69,9 +69,9 @@ public class CafeService implements ICafeService {
         Email nuevoEmail = new Email(request.email());
 
         if (!cafe.getEmail().equals(nuevoEmail)) {
-            if (repository.existsByEmail(nuevoEmail)) {
+            /*if (repository.existsByEmail(nuevoEmail)) {
                 throw new EntityAlreadyExistsException("El Email ya existe");
-            }
+            }*/
             cafe.setEmail(nuevoEmail);
         }
 
@@ -93,10 +93,6 @@ public class CafeService implements ICafeService {
          if(request.image() != null && !request.image().isBlank()){
              cafe.setImage(request.image());
          }
-
-
-
-
         return mapper.toResponse(repository.save(cafe));
     }
 
