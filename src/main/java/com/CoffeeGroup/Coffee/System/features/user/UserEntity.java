@@ -26,7 +26,7 @@ public class UserEntity {
     @Column(name = "external_id", nullable = false, unique = true, updatable = false)
     private UUID externalId;
 
-    @Column(name = "password_user")
+    @Column(name = "password")
     private String password;
 
     @Embedded
