@@ -1,0 +1,13 @@
+package com.CoffeeGroup.Coffee.System.features.redemption.domain.dto;
+
+import java.util.Date;
+import java.util.UUID;
+
+//Faltaria agregar el dto de Cliente, compra, Beneficio,.
+public record RedemptionResponse(
+        UUID externalId,
+        Date date,
+        Integer usedPoints,
+        String validationCode,
+        Boolean state){
+}
