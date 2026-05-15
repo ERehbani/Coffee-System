@@ -37,15 +37,15 @@ public class RedemptionService implements IRedemptionService {
     @Override
     @Transactional
     public RedemptionResponse save(RedemptionCreateRequest redemptionCreateRequest) {
-        ClientEntity clientAux = clientRepository.findById(redemptionCreateRequest.clientid()).
+        ClientEntity clientAux = clientRepository.findByExternalId(redemptionCreateRequest.clientid()).
                 orElseThrow(()-> new EntityNotFoundException("Client not found"));
 
-        BenefitEntity benefitAux = benefitRepository.findById(redemptionCreateRequest.benefitid())
+        BenefitEntity benefitAux = benefitRepository.findByExternalId(redemptionCreateRequest.benefitid())
                 .orElseThrow(() -> new EntityNotFoundException("Benefit not found"));
         PurchaseEntity purchaseAux= null;
 
         if (redemptionCreateRequest.purchaseid() != null){
-            purchaseAux = purchaseRepository.findById(redemptionCreateRequest.purchaseid())
+            purchaseAux = purchaseRepository.findByExternalId(redemptionCreateRequest.purchaseid())
                     .orElseThrow(()-> new EntityNotFoundException("Purchase not found"));
         }
         Integer pointsCost = benefitAux.getPointsCost();

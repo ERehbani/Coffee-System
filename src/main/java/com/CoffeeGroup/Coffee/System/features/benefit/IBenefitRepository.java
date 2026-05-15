@@ -6,5 +6,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface IBenefitRepository extends JpaRepository<BenefitEntity, Long> {
-    Optional<BenefitEntity> findBy(UUID externalId);
+    Optional<BenefitEntity> findByExternalId(UUID externalId);
 }
