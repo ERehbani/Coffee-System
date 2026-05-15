@@ -5,11 +5,11 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public record CategoryRequest(
-        @NotBlank(message = "El nombre es obligatorio")
-        @Size(min = 2, max = 50, message = "El nombre debe tener entre 2 y 50 caracteres")
+        @NotBlank(message = "Name must be not blank")
+        @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
         @Pattern(
                 regexp = "^\\p{L}+$",
-                message = "El nombre solo puede contener letras, sin numeros, simbolos ni espacios"
+                message = "Name must only contain letters, no numbers, symbols or spaces"
         )
         String name
 ) {

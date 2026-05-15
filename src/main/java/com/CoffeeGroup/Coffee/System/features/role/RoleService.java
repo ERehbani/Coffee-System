@@ -1,17 +1,15 @@
 package com.CoffeeGroup.Coffee.System.features.role;
 
-import com.CoffeeGroup.Coffee.System.common.Exception.EntityAlreadyExistsException;
+import com.CoffeeGroup.Coffee.System.common.exceptions.EntityAlreadyExistsException;
 import com.CoffeeGroup.Coffee.System.common.exceptions.EntityNotFoundException;
 import com.CoffeeGroup.Coffee.System.features.role.domain.dto.CreateRoleRequest;
 import com.CoffeeGroup.Coffee.System.features.role.domain.dto.RoleResponse;
 import com.CoffeeGroup.Coffee.System.features.role.domain.mapper.RoleMapper;
 import com.CoffeeGroup.Coffee.System.features.user.UserRepository;
 import com.CoffeeGroup.Coffee.System.features.user.domain.dto.UpdateUserRequest;
-import com.CoffeeGroup.Coffee.System.features.user.domain.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.management.relation.Role;
 import java.util.List;
 import java.util.UUID;
 
