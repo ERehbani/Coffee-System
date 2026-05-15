@@ -6,7 +6,7 @@ import com.CoffeeGroup.Coffee.System.features.redemption.domain.dto.RedemptionUp
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface IRedemptionUpdateRequest extends IMapper<RedemptionUpdateRequest, RedemptionEntity> {
+public interface IRedemptionUpdateRequest extends IMapper<RedemptionEntity, RedemptionUpdateRequest> {
 
     RedemptionEntity toEntity(RedemptionUpdateRequest redemptionUpdateRequest);
     RedemptionUpdateRequest toDto(RedemptionEntity redemptionEntity);

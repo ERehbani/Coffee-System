@@ -9,7 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface IRedemptionRepository extends JpaRepository <RedemptionEntity, Long> {
-    boolean existsByExternalId(UUID externalId);
-    void deleteByExternalId(UUID externalId);
     Optional<RedemptionEntity> findByExternalId(UUID externalId);
 }

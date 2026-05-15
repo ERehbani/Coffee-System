@@ -3,6 +3,7 @@ package com.CoffeeGroup.Coffee.System.features.redemption;
 import com.CoffeeGroup.Coffee.System.features.redemption.domain.dto.RedemptionCreateRequest;
 import com.CoffeeGroup.Coffee.System.features.redemption.domain.dto.RedemptionResponse;
 import com.CoffeeGroup.Coffee.System.features.redemption.domain.dto.RedemptionUpdateRequest;
+import com.CoffeeGroup.Coffee.System.features.review.domain.dto.ReviewResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -30,15 +31,20 @@ public class RedemptionController {
         return ResponseEntity.ok(redemptionService.findAll());
     }
 
-    @PutMapping("/{redemtionId}")
+    @PutMapping("/{externalId}")
     ResponseEntity<RedemptionResponse> update(@PathVariable UUID externalId, @RequestBody RedemptionUpdateRequest redemptionUpdateRequest) {
         return ResponseEntity.ok(redemptionService.update(externalId, redemptionUpdateRequest));
     }
 
-    @DeleteMapping("/{redemtionId}")
+    @DeleteMapping("/{externalId}")
     ResponseEntity<Void> delete(@PathVariable UUID exteralId) {
         redemptionService.deleteByid(exteralId);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{externalId}")
+    ResponseEntity<RedemptionResponse> findById(@PathVariable UUID externalId) {
+        return ResponseEntity.ok(redemptionService.findByid(externalId));
     }
 
 

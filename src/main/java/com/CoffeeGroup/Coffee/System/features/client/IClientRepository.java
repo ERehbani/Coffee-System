@@ -8,5 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface IClientRepository extends JpaRepository<ClientEntity,Long> {
-    Optional<ClientEntity> findById(UUID externalId);
+    Optional<ClientEntity> findByExternalId(UUID externalId);
 }
