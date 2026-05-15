@@ -10,9 +10,11 @@ public interface ICategoryService {
 
     List<CategoryResponse> getAllCategories();
 
-    CategoryResponse getCategoryById(UUID categoryId);
+    CategoryResponse getCategoryByExternalId(UUID externalId);
 
     CategoryResponse save(CategoryRequest categoryRequest);
 
     List<CategoryResponse> searchByName(String nameFragment);
+
+    void delete(UUID externalId);
 }

@@ -1,6 +1,6 @@
 package com.CoffeeGroup.Coffee.System.features.redemption.domain.Mappers;
 
-import com.CoffeeGroup.Coffee.System.common.Model.IMapper;
+import com.CoffeeGroup.Coffee.System.common.model.IMapper;
 import com.CoffeeGroup.Coffee.System.features.redemption.RedemptionEntity;
 import com.CoffeeGroup.Coffee.System.features.redemption.domain.dto.RedemptionResponse;
 import org.mapstruct.Mapper;

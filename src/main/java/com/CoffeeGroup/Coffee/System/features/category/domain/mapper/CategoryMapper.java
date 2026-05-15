@@ -9,12 +9,13 @@ import org.springframework.stereotype.Component;
 public class CategoryMapper implements IMapper<CategoryEntity, CategoryResponse> {
 
     @Override
-    public CategoryEntity toEnity(CategoryResponse response) {
+    public CategoryEntity toEntity(CategoryResponse categoryResponse) {
         return CategoryEntity.builder()
-                .externalId(response.categoryId())
-                .name(response.name())
+                .externalId(categoryResponse.categoryId())
+                .name(categoryResponse.name())
                 .build();
     }
+
 
     @Override
     public CategoryResponse toDto(CategoryEntity entity) {

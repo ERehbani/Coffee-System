@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Repository
 public interface ICategoryRepository extends JpaRepository<CategoryEntity, Long> {
-    Optional<CategoryEntity> findById(UUID externalId);
+    Optional<CategoryEntity> findByExternalId(UUID externalId);
     Optional<CategoryEntity> findByName(String name);
 
     List<CategoryEntity> findByNameContainingIgnoreCase(String nameFragment);

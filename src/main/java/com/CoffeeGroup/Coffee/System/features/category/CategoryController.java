@@ -1,6 +1,8 @@
 package com.CoffeeGroup.Coffee.System.features.category;
 
+import com.CoffeeGroup.Coffee.System.features.category.domain.dto.CategoryRequest;
 import com.CoffeeGroup.Coffee.System.features.category.domain.dto.CategoryResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +21,20 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
 
-    @GetMapping("/{categoryId}")
-    public ResponseEntity<CategoryResponse> getCategoryById(@RequestParam UUID categoryId){
-        return ResponseEntity.ok(categoryService.getCategoryById(categoryId));
+    @GetMapping("/{externalId}")
+    public ResponseEntity<CategoryResponse> getCategoryByExternalId(@PathVariable UUID externalId){
+        return ResponseEntity.ok(categoryService.getCategoryByExternalId(externalId));
+    }
+
+    @PostMapping
+    public ResponseEntity<CategoryResponse> saveCategory(@Valid @RequestBody CategoryRequest categoryRequest) {
+        return ResponseEntity.ok(categoryService.save(categoryRequest));
+    }
+
+    @DeleteMapping("/{externalId}")
+    public ResponseEntity<Void> delete(@PathVariable UUID externalId){
+        categoryService.delete(externalId);
+        return ResponseEntity.noContent().build();
     }
 
 }
