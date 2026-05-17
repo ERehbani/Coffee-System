@@ -1,6 +1,6 @@
 package com.CoffeeGroup.Coffee.System.features.review;
 
-import com.CoffeeGroup.Coffee.System.common.Exception.EntityNotFoundException;
+import com.CoffeeGroup.Coffee.System.common.exceptions.EntityNotFoundException;
 import com.CoffeeGroup.Coffee.System.features.cafe.CafeEntity;
 import com.CoffeeGroup.Coffee.System.features.cafe.ICafeRepository;
 import com.CoffeeGroup.Coffee.System.features.client.ClientEntity;

@@ -1,4 +1,4 @@
-package com.CoffeeGroup.Coffee.System.common.Model;
+package com.CoffeeGroup.Coffee.System.common.model;
 
 
 public interface IMapper <T,U>{
