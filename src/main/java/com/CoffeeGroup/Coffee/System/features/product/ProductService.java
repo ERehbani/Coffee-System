@@ -37,7 +37,7 @@ public class ProductService implements IProductService{
     @Override
     public ProductResponse save(ProductRequest productRequest) {
         ProductEntity entity = productMapper.toEntity(new ProductResponse(
-                null,
+                UUID.randomUUID(),
                 productRequest.name(),
                 productRequest.description(),
                 productRequest.price(),
