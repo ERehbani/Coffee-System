@@ -5,6 +5,7 @@ import com.CoffeeGroup.Coffee.System.features.redemption.domain.dto.RedemptionCr
 import com.CoffeeGroup.Coffee.System.features.redemption.domain.dto.RedemptionResponse;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.Date;
 
@@ -23,8 +24,8 @@ public class RedemptionMapper {
             return null;
         }
 
-        Date date = entity.getDate() != null
-                ? Date.from(entity.getDate().toInstant(ZoneOffset.UTC))
+        LocalDate date = entity.getDate() != null
+                ? LocalDate.from(entity.getDate().toInstant(ZoneOffset.UTC))
                 : null;
 
         return new RedemptionResponse(
